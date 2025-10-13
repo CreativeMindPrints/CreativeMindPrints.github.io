@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Creative Mind Prints</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #FF6B6B; --secondary: #4ECDC4; --accent: #FFE66D;
+            --text: #2C3E50; --light: #F8F9FA; --white: #FFFFFF;
+        }
+        
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--text); }
+        .container { max-width: 600px; margin: 0 auto; padding: 0 20px; }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white); padding: 60px 0; text-align: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;
+        }
+        
+        main { padding: 60px 0; text-align: center; }
+        
+        .contact-card {
+            background: var(--light); padding: 40px; border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1); margin: 40px 0;
+        }
+        
+        .contact-item {
+            margin: 20px 0; font-size: 1.1rem;
+        }
+        
+        .contact-item i {
+            color: var(--primary); margin-right: 15px; font-size: 1.3rem;
+        }
+        
+        .back-home {
+            display: inline-block; background: var(--primary); color: var(--white);
+            padding: 12px 25px; text-decoration: none; border-radius: 25px;
+            font-weight: 600; margin: 30px 0; transition: all 0.3s;
+        }
+        
+        footer { background: var(--text); color: var(--white); padding: 30px 0; text-align: center; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Creative Mind Prints</div>
+            <div>Get in Touch</div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <h1 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 2rem;">Contact Us</h1>
+        
+        <div class="contact-card">
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <strong>Email:</strong> support@creativemindprints.com
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-question-circle"></i>
+                <strong>Privacy Questions:</strong> privacy@creativemindprints.com
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-pinterest"></i>
+                <strong>Pinterest:</strong> @creativemindprints
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-clock"></i>
+                <strong>Response Time:</strong> Within 24 hours
+            </div>
+        </div>
+        
+        <p style="font-size: 1.1rem; margin: 2rem 0;">
+            Have questions about our products? Need help with downloads? Want to collaborate? We'd love to hear from you!
+        </p>
+        
+        <a href="index.html" class="back-home">← Back to Store</a>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Creative Mind Prints. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+</body>
+</html>
