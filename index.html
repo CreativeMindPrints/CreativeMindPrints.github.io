@@ -3,390 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creative Mind Prints - Beautiful Budget Planners & Financial Printables</title>
-    <meta name="description" content="Take control of your finances with beautiful printable budget planners, debt trackers, and savings tools. Instant download, print-friendly designs.">
-    
+    <title>Creative Mind Prints - Take Control of Your Finances</title>
+    <meta name="description" content="Beautiful printable budget planners, debt trackers, and savings tools. Instant download, print-friendly designs. Take control of your finances with confidence.">
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
+    <!-- Stripe -->
+    <script src="https://js.stripe.com/v3/"></script>
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         :root {
-            --primary: #9B59B6;
-            --secondary: #3498DB;
-            --accent: #F39C12;
-            --success: #27AE60;
-            --text: #2C3E50;
-            --light: #ECF0F1;
-            --white: #FFFFFF;
-            --shadow: rgba(0,0,0,0.1);
+            --primary: #9B59B6; --secondary: #3498DB; --accent: #F39C12;
+            --success: #27AE60; --text: #2C3E50; --light: #ECF0F1; 
+            --white: #FFFFFF; --shadow: rgba(0,0,0,0.1);
         }
-        
+
         body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background: var(--white);
+            font-family: 'Inter', sans-serif; line-height: 1.6; 
+            color: var(--text); background: var(--white);
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
         /* Header */
         header {
-            background: var(--white);
-            box-shadow: 0 2px 20px var(--shadow);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
+            background: var(--white); box-shadow: 0 2px 20px var(--shadow);
+            position: fixed; width: 100%; top: 0; z-index: 1000;
         }
-        
+
         nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
+            display: flex; justify-content: space-between; 
+            align-items: center; padding: 1rem 0;
         }
-        
+
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-        
-        .nav-links {
             display: flex;
-            list-style: none;
-            gap: 2rem;
+            align-items: center;
+            font-family: 'Playfair Display', serif;
         }
-        
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            max-width: 200px;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+        .logo img {
+             height: 40px;
+             max-width: 150px;
+        }
+
+        .nav-links {
+            display: flex; list-style: none; gap: 2rem;
+        }
+
         .nav-links a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            transition: color 0.3s;
+            text-decoration: none; color: var(--text); 
+            font-weight: 500; transition: color 0.3s;
         }
-        
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-        
+        .nav-links a:hover { color: var(--primary); }
+
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--white);
-            padding: 150px 0 100px;
-            text-align: center;
+            color: var(--white); padding: 150px 0 100px; text-align: center;
         }
-        
+
         .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
+            font-family: 'Playfair Display', serif; font-size: 3.5rem;
+            font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2;
         }
-        
+
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.95;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: 1.3rem; margin-bottom: 2.5rem; opacity: 0.95;
+            max-width: 600px; margin-left: auto; margin-right: auto;
         }
-        
+
         .cta-button {
-            background: var(--accent);
-            color: var(--white);
-            padding: 18px 45px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s;
+            background: var(--accent); color: var(--white); padding: 18px 45px;
+            border: none; border-radius: 50px; font-size: 1.2rem; font-weight: 600;
+            text-decoration: none; display: inline-block; transition: all 0.3s;
             box-shadow: 0 8px 25px rgba(0,0,0,0.3);
         }
-        
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+            transform: translateY(-2px); box-shadow: 0 12px 35px rgba(0,0,0,0.4);
         }
-        
-        /* Features Section */
-        .features {
-            padding: 100px 0;
-            background: var(--light);
-        }
-        
-        .features h2 {
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--text);
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .feature-card {
-            background: var(--white);
-            padding: 2.5rem 2rem;
-            border-radius: 15px;
-            box-shadow: 0 8px 30px var(--shadow);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .feature-icon {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-        
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--text);
-        }
-        
+
         /* Products Section */
-        .products {
-            padding: 100px 0;
-        }
-        
+        .products { padding: 100px 0; }
+
         .products h2 {
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            text-align: center; font-family: 'Playfair Display', serif;
+            font-size: 2.5rem; margin-bottom: 1rem;
         }
-        
+
         .products-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: var(--primary);
-            margin-bottom: 3rem;
+            text-align: center; font-size: 1.2rem; 
+            color: var(--primary); margin-bottom: 3rem;
         }
-        
+
         .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2.5rem;
         }
-        
+
         .product-card {
-            background: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px var(--shadow);
-            transition: all 0.3s;
+            background: var(--white); border-radius: 20px; overflow: hidden;
+            box-shadow: 0 10px 40px var(--shadow); transition: all 0.3s;
         }
-        
         .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0,0,0,0.2);
         }
-        
+
         .product-image {
-            height: 220px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: var(--white);
-            position: relative;
+            height: 280px; position: relative; overflow: hidden;
         }
-        
+
+        .product-image img {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+
         .product-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--accent);
-            color: var(--white);
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 600;
+            position: absolute; top: 15px; right: 15px; background: var(--accent);
+            color: var(--white); padding: 8px 16px; border-radius: 20px;
+            font-size: 0.85rem; font-weight: 700; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
-        
-        .product-info {
-            padding: 2rem 1.5rem;
-        }
-        
+
+        .product-info { padding: 2rem 1.5rem; }
+
         .product-info h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.8rem;
-            color: var(--text);
+            font-size: 1.4rem; margin-bottom: 0.8rem; color: var(--text); line-height: 1.3;
         }
-        
-        .product-info p {
-            font-size: 1rem;
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-        
+
         .product-price {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
+            font-size: 2rem; font-weight: 700; color: var(--primary); margin-bottom: 1.5rem;
         }
-        
+
         .buy-button {
-            background: var(--primary);
-            color: var(--white);
-            padding: 15px 30px;
-            border: none;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 1rem;
-            width: 100%;
-            cursor: pointer;
-            transition: all 0.3s;
+            background: var(--primary); color: var(--white); padding: 15px 30px;
+            border: none; border-radius: 30px; font-weight: 600; font-size: 1rem;
+            width: 100%; cursor: pointer; transition: all 0.3s;
         }
-        
-        .buy-button:hover {
-            background: #8E44AD;
-            transform: translateY(-2px);
+        .buy-button:hover { background: #8E44AD; transform: translateY(-2px); }
+
+        .loading { opacity: 0.7; cursor: not-allowed; }
+
+        /* Messages */
+        .message {
+            position: fixed; top: 100px; left: 50%; transform: translateX(-50%);
+            padding: 15px 25px; border-radius: 10px; z-index: 2000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3); display: none;
         }
-        
+
+        .success-message { background: var(--success); color: var(--white); }
+        .error-message { background: #E74C3C; color: var(--white); }
+
         /* About Section */
         .about {
-            padding: 100px 0;
-            background: var(--light);
+            padding: 100px 0; background: var(--light);
         }
-        
+
         .about-content {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto;
+            text-align: center; max-width: 700px; margin: 0 auto;
         }
-        
+
         .about h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: var(--text);
+            font-family: 'Playfair Display', serif; font-size: 2.5rem;
+            margin-bottom: 2rem; color: var(--text);
         }
-        
+
         .about p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
+            font-size: 1.1rem; margin-bottom: 1.5rem; line-height: 1.8;
         }
-        
-        .heart-icon {
-            color: var(--primary);
-            font-size: 1.2rem;
-        }
-        
+
         /* Footer */
         footer {
-            background: var(--text);
-            color: var(--white);
-            padding: 60px 0 30px;
+            background: var(--text); color: var(--white); padding: 60px 0 30px;
         }
-        
+
         .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem; margin-bottom: 2rem;
         }
-        
+
         .footer-section h4 {
-            margin-bottom: 1.5rem;
-            color: var(--accent);
-            font-size: 1.2rem;
+            margin-bottom: 1.5rem; color: var(--accent); font-size: 1.2rem;
         }
-        
+
         .footer-section a {
-            color: var(--white);
-            text-decoration: none;
-            opacity: 0.8;
-            transition: opacity 0.3s;
-            display: block;
-            margin-bottom: 0.5rem;
+            color: var(--white); text-decoration: none; opacity: 0.8;
+            display: block; margin-bottom: 0.5rem; transition: opacity 0.3s;
         }
-        
-        .footer-section a:hover {
-            opacity: 1;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        
-        .social-links a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-        }
-        
-        .social-links a:hover {
-            background: var(--accent);
-            transform: translateY(-2px);
-        }
-        
+        .footer-section a:hover { opacity: 1; }
+
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .features-grid,
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .container {
-                padding: 0 15px;
-            }
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+            .products-grid { grid-template-columns: 1fr; }
+            .container { padding: 0 15px; }
         }
     </style>
 </head>
 <body>
+    <!-- Messages -->
+    <div class="message success-message" id="successMessage"></div>
+    <div class="message error-message" id="errorMessage"></div>
+
     <!-- Header -->
     <header>
         <nav class="container">
-            <div class="logo">Creative Mind Prints</div>
+            <div class="logo">
+                <img src="images/logo.png" alt="Creative Mind Prints" style="height: 50px; width: auto;">
+            </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#products">Products</a></li>
@@ -396,278 +231,251 @@
             </ul>
         </nav>
     </header>
-    
+
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <h1>Take Control of Your Finances <i class="heart-icon">💜</i></h1>
-            <p>Beautiful, functional budget planners and financial printables designed to make money management accessible and empowering for everyone.</p>
+            <h1>Take Control of Your Finances 💜</h1>
+            <p>Beautiful, functional budget planners and financial trackers designed to make money management accessible and empowering for everyone.</p>
             <a href="#products" class="cta-button">Start Your Journey <i class="fas fa-arrow-down"></i></a>
         </div>
     </section>
-    
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <h2>What Makes Us Different ✨</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-download"></i>
-                    </div>
-                    <h3>Instant Digital Downloads</h3>
-                    <p>Start planning in minutes! No shipping, no waiting. Download immediately after purchase.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-print"></i>
-                    </div>
-                    <h3>Print-Friendly Designs</h3>
-                    <p>Designed to save your ink while looking beautiful. Optimized for home and office printers.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Functional Layouts</h3>
-                    <p>Not just pretty - these actually work! Tested layouts that help you succeed with your finances.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <h3>Beautiful Designs</h3>
-                    <p>Financial planning doesn't have to be boring! Gorgeous designs you'll actually love using.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-infinity"></i>
-                    </div>
-                    <h3>Lifetime Access</h3>
-                    <p>Every purchase includes lifetime access. Print as many copies as you need, whenever you need them.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>Here to Help</h3>
-                    <p>Questions? We're always here to help you succeed on your financial wellness journey.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
+
     <!-- Products Section -->
     <section class="products" id="products">
         <div class="container">
             <h2>Financial Wellness Tools</h2>
-            <p class="products-subtitle">Everything you need to take control of your money with confidence</p>
+            <p class="products-subtitle">Take control of your money with confidence</p>
             <div class="products-grid">
+
+                <!-- Monthly Budget Planner -->
                 <div class="product-card">
                     <div class="product-image">
-                        <i class="fas fa-calculator"></i>
+                        <img src="images/Monthly-Budget-Planner-CreativeMindPrints.jpg" alt="Monthly Budget Planner">
                         <div class="product-badge">BESTSELLER</div>
                     </div>
                     <div class="product-info">
-                        <h3>Ultimate Budget Planner</h3>
-                        <p>Complete budgeting system with monthly trackers, expense categories, and goal setting pages.</p>
-                        <div class="product-price">$15.99</div>
-                        <button class="buy-button" onclick="buyProduct('budget-planner')">Get Your Planner</button>
+                        <h3>Monthly Budget Planner</h3>
+                        <p>Complete monthly budgeting system with income tracking, expense categories, and financial summaries.</p>
+                        <div class="product-price">$4.99</div>
+                        <button class="buy-button" onclick="buyProduct('monthly-budget-planner')" id="btn-monthly-budget-planner">
+                            Start Budgeting
+                        </button>
                     </div>
                 </div>
-                
+
+                <!-- Debt Payoff Tracker -->
                 <div class="product-card">
                     <div class="product-image">
-                        <i class="fas fa-credit-card"></i>
+                        <img src="images/Debt-Payoff-Tracker-Snowball-CreativeMindPrints.jpg" alt="Debt Payoff Tracker">
                         <div class="product-badge">POPULAR</div>
                     </div>
                     <div class="product-info">
-                        <h3>Debt Freedom Tracker</h3>
-                        <p>Visual debt payoff tracker with snowball method, progress charts, and motivation pages.</p>
-                        <div class="product-price">$12.99</div>
-                        <button class="buy-button" onclick="buyProduct('debt-tracker')">Start Debt Freedom</button>
+                        <h3>Debt Payoff Tracker</h3>
+                        <p>Snowball method debt tracker - pay off debt faster with visual progress tracking and motivation.</p>
+                        <div class="product-price">$3.99</div>
+                        <button class="buy-button" onclick="buyProduct('debt-payoff-tracker')" id="btn-debt-payoff-tracker">
+                            Become Debt-Free
+                        </button>
                     </div>
                 </div>
-                
+
+                <!-- Emergency Fund Tracker -->
                 <div class="product-card">
                     <div class="product-image">
-                        <i class="fas fa-piggy-bank"></i>
+                        <img src="images/Emergency-Fund-Tracker-CreativeMindPrints.jpg" alt="Emergency Fund Savings Tracker">
                     </div>
                     <div class="product-info">
-                        <h3>Savings Challenge Pack</h3>
-                        <p>52-week savings challenge, emergency fund tracker, and goal-setting worksheets.</p>
-                        <div class="product-price">$9.99</div>
-                        <button class="buy-button" onclick="buyProduct('savings-pack')">Build Your Savings</button>
+                        <h3>Emergency Fund Savings Tracker</h3>
+                        <p>Build your financial safety net with goal tracking, milestones, and deposit logging system.</p>
+                        <div class="product-price">$3.99</div>
+                        <button class="buy-button" onclick="buyProduct('emergency-fund-tracker')" id="btn-emergency-fund-tracker">
+                            Build Emergency Fund
+                        </button>
                     </div>
                 </div>
-                
+
+                <!-- 52-Week Savings Challenge -->
                 <div class="product-card">
                     <div class="product-image">
-                        <i class="fas fa-chart-pie"></i>
+                        <img src="images/52-Week-Savings-Challenge-CreativeMindPrints.jpg" alt="52-Week Savings Challenge">
                     </div>
                     <div class="product-info">
-                        <h3>Expense Tracking Bundle</h3>
-                        <p>Daily, weekly, and monthly expense trackers with category analysis and spending insights.</p>
-                        <div class="product-price">$11.99</div>
-                        <button class="buy-button" onclick="buyProduct('expense-tracker')">Track Your Spending</button>
+                        <h3>52-Week Savings Challenge</h3>
+                        <p>Save $1,378 in one year! Weekly savings tracker with customizable amounts and progress monitoring.</p>
+                        <div class="product-price">$2.99</div>
+                        <button class="buy-button" onclick="buyProduct('52-week-savings')" id="btn-52-week-savings">
+                            Start Saving
+                        </button>
                     </div>
                 </div>
-                
+
+                <!-- Bill Payment Tracker -->
                 <div class="product-card">
                     <div class="product-image">
-                        <i class="fas fa-home"></i>
+                        <img src="images/BILL-PAYMENT-TRACKER.jpg" alt="Monthly Bill Payment Tracker">
                     </div>
                     <div class="product-info">
-                        <h3>Household Budget Kit</h3>
-                        <p>Family budgeting made easy with bill trackers, meal planning, and household expense sheets.</p>
-                        <div class="product-price">$13.99</div>
-                        <button class="buy-button" onclick="buyProduct('household-budget')">Organize Your Home</button>
+                        <h3>Monthly Bill Payment Tracker</h3>
+                        <p>Never miss a payment again! Track all bills, due dates, amounts, and payment methods in one place.</p>
+                        <div class="product-price">$2.99</div>
+                        <button class="buy-button" onclick="buyProduct('bill-payment-tracker')" id="btn-bill-payment-tracker">
+                            Get Organized
+                        </button>
                     </div>
                 </div>
-                
+
+                <!-- Complete Bundle -->
                 <div class="product-card">
                     <div class="product-image">
-                        <i class="fas fa-star"></i>
+                        <img src="images/5-in-1-Bundle.jpg" alt="Complete Budget Planning Bundle">
                         <div class="product-badge">BEST VALUE</div>
                     </div>
                     <div class="product-info">
-                        <h3>Complete Financial Bundle</h3>
-                        <p>Get everything! All planners, trackers, and tools in one comprehensive package.</p>
-                        <div class="product-price">$39.99 <span style="text-decoration: line-through; color: #999; font-size: 1.2rem;">$64.95</span></div>
-                        <button class="buy-button" onclick="buyProduct('complete-bundle')">Get Everything & Save</button>
+                        <h3>Complete Budget Planning Bundle</h3>
+                        <p>Get all 5 financial printables! Budget planner, debt tracker, emergency fund, savings challenge, and bill tracker.</p>
+                        <div class="product-price">$12.99 <span style="text-decoration: line-through; color: #999; font-size: 1.2rem;">$18.95</span></div>
+                        <button class="buy-button" onclick="buyProduct('complete-bundle')" id="btn-complete-bundle">
+                            Get Everything & Save 32%
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
             <div class="about-content">
-                <h2>Welcome to Creative Mind Prints! <i class="heart-icon">💜</i></h2>
-                
+                <h2>Welcome to Creative Mind Prints! 💜</h2>
+
                 <p>We believe that <strong>financial wellness should be accessible, beautiful, and empowering</strong>. Our printable budget planners, debt trackers, and savings tools are designed to help you take control of your money with confidence.</p>
-                
+
                 <div style="background: var(--white); padding: 2rem; border-radius: 15px; box-shadow: 0 8px 30px var(--shadow); margin: 2rem 0;">
-                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Our Promise to You:</h3>
-                    <p>Whether you're paying off debt, building an emergency fund, or just trying to stick to a budget, we've got printables to support your journey.</p>
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">✨ What makes us different:</h3>
+                    <p style="margin-bottom: 1rem;">🔸 <strong>Instant digital downloads</strong> - start planning in minutes</p>
+                    <p style="margin-bottom: 1rem;">🔸 <strong>Print-friendly designs</strong> that save ink</p>
+                    <p style="margin-bottom: 1rem;">🔸 <strong>Functional layouts</strong> that actually work</p>
+                    <p>🔸 <strong>Beautiful designs</strong> you'll love using</p>
                 </div>
-                
+
+                <p>Whether you're paying off debt, building an emergency fund, or just trying to stick to a budget, we've got printables to support your journey.</p>
+
                 <p><strong>Every purchase includes lifetime access to your files.</strong> Print as many copies as you need!</p>
-                
-                <p>Questions? Message us anytime - we're here to help! <i class="heart-icon">💙</i></p>
-                
+
+                <p>Questions? Message us anytime - we're here to help! 💙</p>
+
                 <p style="font-size: 1.3rem; font-weight: 600; color: var(--primary); margin-top: 2rem;">Happy planning! 🎉</p>
             </div>
         </div>
     </section>
-    
+
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Creative Mind Prints <i class="heart-icon">💜</i></h4>
+                    <h4>Creative Mind Prints 💜</h4>
                     <p>Making financial wellness beautiful, accessible, and empowering for everyone.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-pinterest"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="mailto:support@creativemindprints.com"><i class="fas fa-envelope"></i></a>
+                    <div style="margin-top: 1rem;">
+                        <a href="#" style="color: var(--white); margin-right: 1rem; font-size: 1.5rem;"><i class="fab fa-pinterest"></i></a>
+                        <a href="#" style="color: var(--white); margin-right: 1rem; font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="mailto:support@creativemindprints.com" style="color: var(--white); font-size: 1.5rem;"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Financial Tools</h4>
                     <a href="#products">Budget Planners</a>
                     <a href="#products">Debt Trackers</a>
                     <a href="#products">Savings Tools</a>
-                    <a href="#products">Expense Trackers</a>
+                    <a href="#products">Bill Trackers</a>
                     <a href="#products">Complete Bundle</a>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Support</h4>
                     <a href="privacy.html">Privacy Policy</a>
                     <a href="terms.html">Terms of Service</a>
                     <a href="contact.html">Contact Us</a>
-                    <a href="#faq">FAQ</a>
                     <a href="mailto:support@creativemindprints.com">Get Help</a>
                 </div>
             </div>
-            
+
             <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 2rem; margin-top: 3rem; text-align: center;">
-                <p>&copy; 2025 Creative Mind Prints. All rights reserved. | Financial wellness tools designed with <i class="heart-icon">💜</i></p>
+                <p>&copy; 2025 Creative Mind Prints. All rights reserved. Financial wellness tools designed with 💜</p>
             </div>
         </div>
     </footer>
-    
-    <!-- JavaScript -->
+
+    <!-- Stripe Integration JavaScript -->
     <script>
-        function buyProduct(productType) {
-            // Integrate with your payment processor
-            // For now, redirect to payment page or show payment modal
-            
-            const products = {
-                'budget-planner': {
-                    name: 'Ultimate Budget Planner',
-                    price: 15.99,
-                    id: 'budget_planner_v1'
-                },
-                'debt-tracker': {
-                    name: 'Debt Freedom Tracker', 
-                    price: 12.99,
-                    id: 'debt_tracker_v1'
-                },
-                'savings-pack': {
-                    name: 'Savings Challenge Pack',
-                    price: 9.99,
-                    id: 'savings_pack_v1'
-                },
-                'expense-tracker': {
-                    name: 'Expense Tracking Bundle',
-                    price: 11.99,
-                    id: 'expense_bundle_v1'
-                },
-                'household-budget': {
-                    name: 'Household Budget Kit',
-                    price: 13.99,
-                    id: 'household_kit_v1'
-                },
-                'complete-bundle': {
-                    name: 'Complete Financial Bundle',
-                    price: 39.99,
-                    id: 'complete_bundle_v1'
+        // 🔑 REPLACE WITH YOUR ACTUAL STRIPE PUBLISHABLE KEY
+        const stripe = Stripe('pk_live_51SHht31Sk6Kr6885w92Y0p6xKK49ED8gLf6QwClWoa2krhtJic02F9roHgADsMQ2wLlhzkXOe0GHGU1IUY2scV7u00bTnJ5vL9');
+
+        // 🔑 REPLACE WITH YOUR ACTUAL STRIPE PRICE IDs
+        const productPrices = {
+            'monthly-budget-planner': 'price_1SHtcY1Sk6Kr6885Jh5FWunv',
+            'debt-payoff-tracker': 'price_1SHtdr1Sk6Kr6885KFFRofTL',
+            'emergency-fund-tracker': 'price_1SHtep1Sk6Kr6885qsh4bO0P',
+            '52-week-savings': 'price_1SHtfW1Sk6Kr6885Vrgf3jBK',
+            'bill-payment-tracker': 'price_1SHtgB1Sk6Kr68859vL0VWXw',
+            'complete-bundle': 'price_1SHtiy1Sk6Kr68859rISBen6'
+        };
+
+        async function buyProduct(productType) {
+            const button = document.getElementById(`btn-${productType}`);
+            const priceId = productPrices[productType];
+
+            if (!priceId || priceId.includes('YOUR_')) {
+                showError('Please configure your Stripe Price IDs first!');
+                return;
+            }
+
+            // Show loading
+            button.classList.add('loading');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+            showSuccess('Redirecting to secure checkout...');
+
+            try {
+                // Redirect to Stripe Checkout
+                const { error } = await stripe.redirectToCheckout({
+                    lineItems: [{ price: priceId, quantity: 1 }],
+                    mode: 'payment',
+                    successUrl: window.location.origin + '/success.html?product=' + productType,
+                    cancelUrl: window.location.origin + '/index.html',
+                    customerEmail: null
+                });
+
+                if (error) {
+                    throw error;
                 }
-            };
-            
-            const product = products[productType];
-            if (product) {
-                // You can integrate with:
-                // - Stripe Checkout
-                // - PayPal
-                // - Square
-                // - Or redirect to existing Gumroad as fallback
-                
-                alert(`Redirecting to secure checkout for ${product.name} - $${product.price}`);
-                
-                // Example Stripe integration (replace with your actual Stripe links):
-                // window.location.href = `https://buy.stripe.com/your-product-link-${product.id}`;
-                
-                // Or PayPal:
-                // window.location.href = `https://www.paypal.com/your-product-${product.id}`;
-                
-                // Or keep Gumroad as backend:
-                // window.open(`https://creativemindprints.gumroad.com/l/${productType}`, '_blank');
+
+            } catch (err) {
+                button.classList.remove('loading');
+                button.innerHTML = originalText;
+                showError('Checkout failed: ' + err.message);
+                console.error('Stripe error:', err);
             }
         }
-        
-        // Smooth scrolling for navigation
+
+        function showSuccess(message) {
+            const div = document.getElementById('successMessage');
+            div.innerHTML = message;
+            div.style.display = 'block';
+            setTimeout(() => { div.style.display = 'none'; }, 3000);
+        }
+
+        function showError(message) {
+            const div = document.getElementById('errorMessage');
+            div.innerHTML = message;
+            div.style.display = 'block';
+            setTimeout(() => { div.style.display = 'none'; }, 5000);
+        }
+
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -677,7 +485,7 @@
                 }
             });
         });
-        
+
         // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
@@ -686,30 +494,7 @@
                 header.style.backdropFilter = 'blur(10px)';
             } else {
                 header.style.background = 'var(--white)';
-                header.style.backdropFilter = 'none';
             }
-        });
-        
-        // Add some interactive elements
-        document.addEventListener('DOMContentLoaded', function() {
-            // Animate cards on scroll
-            const cards = document.querySelectorAll('.feature-card, .product-card');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            });
-            
-            cards.forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'all 0.6s ease';
-                observer.observe(card);
-            });
         });
     </script>
 </body>
