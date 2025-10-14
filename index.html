@@ -115,8 +115,7 @@
         .nav-links a:hover::after {
             width: 100%;
         }
-
-        /* Enhanced Hero Section */
+        
         .hero {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             background-size: 400% 400%;
@@ -170,7 +169,6 @@
             transform: translateY(-2px); box-shadow: 0 12px 35px rgba(0,0,0,0.4);
         }
 
-        /* Products Section */
         .products { padding: 100px 0; }
 
         .products h2 {
@@ -188,7 +186,6 @@
             gap: 2.5rem;
         }
 
-        /* Enhanced Product Cards */
         .product-card {
             background: var(--white); 
             border-radius: 25px; 
@@ -261,7 +258,6 @@
             box-shadow: 0 8px 25px rgba(155, 89, 182, 0.4);
         }
 
-        /* Enhanced Mobile Responsive */
         @media (max-width: 768px) {
             nav {
                 flex-direction: column;
@@ -303,11 +299,9 @@
     </style>
 </head>
 <body>
-    <!-- Messages -->
     <div class="message success-message" id="successMessage"></div>
     <div class="message error-message" id="errorMessage"></div>
 
-    <!-- Header -->
     <header>
         <nav class="container">
             <a href="#home" class="logo">
@@ -324,7 +318,6 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
             <h1>Take Control of Your Finances 💜</h1>
@@ -333,14 +326,12 @@
         </div>
     </section>
 
-    <!-- Products Section -->
     <section class="products" id="products">
         <div class="container">
             <h2>Financial Wellness Tools</h2>
             <p class="products-subtitle">Take control of your money with confidence</p>
             <div class="products-grid">
 
-                <!-- Monthly Budget Planner -->
                 <div class="product-card">
                     <div class="product-image">
                         <img src="images/Monthly-Budget-Planner-CreativeMindPrints.png" alt="Monthly Budget Planner">
@@ -356,7 +347,6 @@
                     </div>
                 </div>
 
-                <!-- Debt Payoff Tracker -->
                 <div class="product-card">
                     <div class="product-image">
                         <img src="images/Debt-Payoff-Tracker-Snowball-CreativeMindPrints.png" alt="Debt Payoff Tracker">
@@ -372,7 +362,6 @@
                     </div>
                 </div>
 
-                <!-- Emergency Fund Tracker -->
                 <div class="product-card">
                     <div class="product-image">
                         <img src="images/Emergency-Fund-Tracker-CreativeMindPrints.png" alt="Emergency Fund Savings Tracker">
@@ -387,7 +376,6 @@
                     </div>
                 </div>
 
-                <!-- 52-Week Savings Challenge -->
                 <div class="product-card">
                     <div class="product-image">
                         <img src="images/52-Week-Savings-Challenge-CreativeMindPrints.png" alt="52-Week Savings Challenge">
@@ -402,7 +390,6 @@
                     </div>
                 </div>
 
-                <!-- Bill Payment Tracker -->
                 <div class="product-card">
                     <div class="product-image">
                         <img src="images/BILL-PAYMENT-TRACKER.png" alt="Monthly Bill Payment Tracker">
@@ -417,7 +404,6 @@
                     </div>
                 </div>
 
-                <!-- Complete Bundle -->
                 <div class="product-card">
                     <div class="product-image">
                         <img src="images/5-in-1-Bundle.png" alt="Complete Budget Planning Bundle">
@@ -436,7 +422,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
             <div class="about-content">
@@ -463,7 +448,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -501,12 +485,9 @@
         </div>
     </footer>
 
-    <!-- Stripe Integration JavaScript -->
     <script>
-        // 🔑 REPLACE WITH YOUR ACTUAL STRIPE PUBLISHABLE KEY
-        const stripe = Stripe('pk_live_51SHht31Sk6Kr6885w92Y0p6xKK49ED8gLf6QwClWoa2krhtJic02F9roHgADsMQ2wLlhzkXOe0GHGU1IUY2scV7u00bTnJ5vL9');
+        const stripe = Stripe('pk_live_51SHht31Sk6Kr6885VvFeTOtoJeUvcSfoNIygrFabh06vzTETn7rTT4XHYIZq1T2GhUz7alcbgn53qkk7HItFp1dn00FiChcY64');
 
-        // 🔑 REPLACE WITH YOUR ACTUAL STRIPE PRICE IDs
         const productPrices = {
             'monthly-budget-planner': 'price_1SHtcY1Sk6Kr6885Jh5FWunv',
             'debt-payoff-tracker': 'price_1SHtdr1Sk6Kr6885KFFRofTL',
