@@ -392,7 +392,7 @@
 
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/Bill-Payment-Tracker.png" alt="Monthly Bill Payment Tracker">
+                        <img src="images/Bill-Payment-Tracker-CreativeMindPrints.png" alt="Monthly Bill Payment Tracker">
                     </div>
                     <div class="product-info">
                         <h3>Monthly Bill Payment Tracker</h3>
@@ -406,7 +406,7 @@
 
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/5-in-1-Bundle.png" alt="Complete Budget Planning Bundle">
+                        <img src="images/5-in-1-Bundle-CreativeMindPrints.png" alt="Complete Budget Planning Bundle">
                         <div class="product-badge">BEST VALUE</div>
                     </div>
                     <div class="product-info">
@@ -506,7 +506,6 @@
                 return;
             }
 
-            // Show loading
             button.classList.add('loading');
             const originalText = button.innerHTML;
             button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
@@ -547,7 +546,6 @@
             setTimeout(() => { div.style.display = 'none'; }, 5000);
         }
 
-        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -558,7 +556,6 @@
             });
         });
 
-        // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (window.scrollY > 50) {
