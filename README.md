@@ -38,6 +38,6 @@ Take control of your finances with professionally designed, print-friendly budge
 
 ---
 
-**Visit the store**: [https://yourusername.github.io](https://yourusername.github.io)
+**Visit the store**: [https://CreativeMindPrints.github.io](https://CreativeMindPrints.github.io)
 
 *Making financial wellness accessible, beautiful, and empowering for everyone.* 💜
