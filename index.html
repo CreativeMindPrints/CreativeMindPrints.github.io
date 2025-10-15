@@ -26,7 +26,6 @@
         
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
-        /* Enhanced Header with Centered Circle Logo */
         header {
             background: var(--white); 
             box-shadow: 0 2px 20px var(--shadow);
@@ -113,7 +112,6 @@
             width: 100%;
         }
         
-        /* Enhanced Hero Section */
         .hero {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             background-size: 400% 400%;
@@ -167,7 +165,6 @@
             transform: translateY(-2px); box-shadow: 0 12px 35px rgba(0,0,0,0.4);
         }
         
-        /* Enhanced Products Section */
         .products { padding: 100px 0; }
         
         .products h2 {
@@ -185,7 +182,6 @@
             gap: 2.5rem;
         }
         
-        /* Enhanced Product Cards */
         .product-card {
             background: var(--white); 
             border-radius: 25px; 
@@ -260,7 +256,6 @@
         
         .loading { opacity: 0.7; cursor: not-allowed; }
         
-        /* Messages */
         .message {
             position: fixed; top: 100px; left: 50%; transform: translateX(-50%);
             padding: 15px 25px; border-radius: 10px; z-index: 2000;
@@ -270,7 +265,6 @@
         .success-message { background: var(--success); color: var(--white); }
         .error-message { background: #E74C3C; color: var(--white); }
         
-        /* About Section */
         .about {
             padding: 100px 0; background: var(--light);
         }
@@ -288,7 +282,6 @@
             font-size: 1.1rem; margin-bottom: 1.5rem; line-height: 1.8;
         }
         
-        /* Footer */
         footer {
             background: var(--text); color: var(--white); padding: 60px 0 30px;
         }
@@ -308,7 +301,6 @@
         }
         .footer-section a:hover { opacity: 1; }
         
-        /* Enhanced Mobile Responsive */
         @media (max-width: 768px) {
             nav {
                 flex-direction: column;
@@ -350,11 +342,9 @@
     </style>
 </head>
 <body>
-    <!-- Messages -->
     <div class="message success-message" id="successMessage"></div>
     <div class="message error-message" id="errorMessage"></div>
     
-    <!-- Header -->
     <header>
         <nav class="container">
             <a href="#home" class="logo">
@@ -371,7 +361,6 @@
         </nav>
     </header>
     
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
             <h1>Take Control of Your Finances 💜</h1>
@@ -380,17 +369,15 @@
         </div>
     </section>
     
-    <!-- Products Section -->
     <section class="products" id="products">
         <div class="container">
             <h2>Financial Wellness Tools</h2>
             <p class="products-subtitle">Take control of your money with confidence</p>
             <div class="products-grid">
                 
-                <!-- Monthly Budget Planner -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/Monthly-Budget-Planner-CreativeMindPrints.jpg" alt="Monthly Budget Planner">
+                        <img src="images/Monthly-Budget-Planner-CreativeMindPrints.png" alt="Monthly Budget Planner">
                         <div class="product-badge">BESTSELLER</div>
                     </div>
                     <div class="product-info">
@@ -403,10 +390,9 @@
                     </div>
                 </div>
                 
-                <!-- Debt Payoff Tracker -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/Debt-Payoff-Tracker-Snowball-CreativeMindPrints.jpg" alt="Debt Payoff Tracker">
+                        <img src="images/Debt-Payoff-Tracker-Snowball-CreativeMindPrints.png" alt="Debt Payoff Tracker">
                         <div class="product-badge">POPULAR</div>
                     </div>
                     <div class="product-info">
@@ -419,10 +405,9 @@
                     </div>
                 </div>
                 
-                <!-- Emergency Fund Tracker -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/Emergency-Fund-Tracker-CreativeMindPrints.jpg" alt="Emergency Fund Savings Tracker">
+                        <img src="images/Emergency-Fund-Tracker-CreativeMindPrints.png" alt="Emergency Fund Savings Tracker">
                     </div>
                     <div class="product-info">
                         <h3>Emergency Fund Savings Tracker</h3>
@@ -434,10 +419,9 @@
                     </div>
                 </div>
                 
-                <!-- 52-Week Savings Challenge -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/52-Week-Savings-Challenge-CreativeMindPrints.jpg" alt="52-Week Savings Challenge">
+                        <img src="images/52-Week-Savings-Challenge-CreativeMindPrints.png" alt="52-Week Savings Challenge">
                     </div>
                     <div class="product-info">
                         <h3>52-Week Savings Challenge</h3>
@@ -449,10 +433,9 @@
                     </div>
                 </div>
                 
-                <!-- Bill Payment Tracker -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/BILL-PAYMENT-TRACKER.jpg" alt="Monthly Bill Payment Tracker">
+                        <img src="images/Bill-Payment-Tracker-CreativeMindPrints.png" alt="Monthly Bill Payment Tracker">
                     </div>
                     <div class="product-info">
                         <h3>Monthly Bill Payment Tracker</h3>
@@ -464,10 +447,9 @@
                     </div>
                 </div>
                 
-                <!-- Complete Bundle -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/5-in-1-Bundle.jpg" alt="Complete Budget Planning Bundle">
+                        <img src="images/5-in-1-Bundle-CreativeMindPrints.png" alt="Complete Budget Planning Bundle">
                         <div class="product-badge">BEST VALUE</div>
                     </div>
                     <div class="product-info">
@@ -483,7 +465,6 @@
         </div>
     </section>
     
-    <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
             <div class="about-content">
@@ -510,7 +491,6 @@
         </div>
     </section>
     
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -548,9 +528,7 @@
         </div>
     </footer>
     
-    <!-- Payment Links JavaScript -->
     <script>
-        // ✅ Payment Links Solution - Simple & Effective!
         
         const paymentLinks = {
             'monthly-budget-planner': 'https://buy.stripe.com/14AfZabII6MO4W20PZ5EY05',
@@ -572,17 +550,14 @@
                 return;
             }
             
-            // Show loading state
             if (button) {
                 button.classList.add('loading');
                 const originalText = button.innerHTML;
                 button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Redirecting to Checkout...';
                 
-                // Store original text for potential restoration
                 button.setAttribute('data-original-text', originalText);
             }
             
-            // Small delay for visual feedback, then redirect
             setTimeout(() => {
                 window.location.href = paymentUrl;
             }, 800);
@@ -606,9 +581,7 @@
             }
         }
         
-        // ✅ Enhanced page interactions
         document.addEventListener('DOMContentLoaded', function() {
-            // Smooth scrolling for navigation
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -619,7 +592,6 @@
                 });
             });
             
-            // Header scroll effect
             window.addEventListener('scroll', function() {
                 const header = document.querySelector('header');
                 if (header) {
@@ -632,7 +604,6 @@
                 }
             });
             
-            // Add subtle animations to product cards
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
@@ -655,10 +626,8 @@
             });
         });
         
-        // Handle potential navigation back to the page
         window.addEventListener('pageshow', function(event) {
             if (event.persisted) {
-                // Reset any loading states if user navigates back
                 document.querySelectorAll('.buy-button.loading').forEach(button => {
                     button.classList.remove('loading');
                     const originalText = button.getAttribute('data-original-text');
