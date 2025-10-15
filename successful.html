@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You! - Creative Mind Prints</title>
+    <meta name="description" content="Thank you for your purchase! Your download instructions have been sent to your email.">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #9B59B6; --secondary: #3498DB; --accent: #F39C12;
+            --success: #27AE60; --text: #2C3E50; --light: #ECF0F1; 
+            --white: #FFFFFF; --shadow: rgba(0,0,0,0.1);
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, var(--success), var(--secondary));
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            min-height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            padding: 20px;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .success-container {
+            background: var(--white); 
+            padding: 50px 40px; 
+            border-radius: 25px;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.2); 
+            text-align: center; 
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .success-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(155, 89, 182, 0.05) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .success-icon { 
+            font-size: 5rem; 
+            color: var(--success); 
+            margin-bottom: 2rem;
+            animation: bounce 2s ease infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .success-container h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 3rem; 
+            color: var(--text); 
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--text);
+            margin-bottom: 3rem;
+            opacity: 0.8;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #E8F5E8, #E3F2FD); 
+            border-left: 5px solid var(--success); 
+            padding: 25px;
+            border-radius: 15px; 
+            margin: 30px 0; 
+            text-align: left;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .info-box h3 {
+            color: var(--success); 
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-box li {
+            margin: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .info-box li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, var(--accent), #E67E22); 
+            color: var(--white); 
+            padding: 25px; 
+            border-radius: 15px; 
+            margin: 25px 0;
+            box-shadow: 0 10px 30px rgba(243, 156, 18, 0.3);
+        }
+
+        .highlight-box h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .back-home, .shop-more {
+            display: inline-block; 
+            padding: 18px 35px; 
+            text-decoration: none; 
+            border-radius: 50px;
+            font-weight: 600; 
+            font-size: 1.1rem;
+            margin: 15px 10px; 
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .back-home {
+            background: var(--primary); 
+            color: var(--white);
+        }
+
+        .back-home:hover { 
+            background: #8E44AD; 
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(155, 89, 182, 0.4);
+        }
+
+        .shop-more {
+            background: var(--white);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .shop-more:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .social-proof {
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(155, 89, 182, 0.05);
+            border-radius: 15px;
+        }
+
+        .social-proof p {
+            font-style: italic;
+            color: var(--text);
+            opacity: 0.9;
+        }
+
+        .stars {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .success-container {
+                padding: 40px 25px;
+                margin: 20px;
+            }
+
+            .success-container h1 {
+                font-size: 2.2rem;
+            }
+
+            .success-icon {
+                font-size: 4rem;
+            }
+
+            .back-home, .shop-more {
+                display: block;
+                margin: 10px 0;
+                padding: 15px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <div class="content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+
+            <h1>Thank You! 💜</h1>
+            <p class="subtitle">Your purchase was successful!</p>
+
+            <div class="info-box">
+                <h3><i class="fas fa-envelope"></i> Check Your Email</h3>
+                <p style="margin-bottom: 1rem;">Your download instructions have been sent to your email address within minutes.</p>
+                <ul>
+                    <li>Secure download link included</li>
+                    <li>Link expires in 48 hours for security</li>
+                    <li>Up to 3 downloads allowed</li>
+                    <li>Print unlimited copies for personal use</li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <h3><strong>Questions or Issues?</strong></h3>
+                <p><strong>Email:</strong> support@creativemindprints.com</p>
+                <p><strong>Response Time:</strong> Within 24 hours</p>
+                <p>We're here to help with any download issues! 💙</p>
+            </div>
+
+            <div class="social-proof">
+                <div class="stars">★★★★★</div>
+                <p>"These budget planners completely transformed how I manage my finances. Beautiful design and actually functional!"</p>
+                <p><strong>- Sarah M.</strong></p>
+            </div>
+
+            <div style="margin: 40px 0;">
+                <a href="index.html" class="back-home">
+                    <i class="fas fa-arrow-left"></i> Back to Store
+                </a>
+                <a href="index.html#products" class="shop-more">
+                    <i class="fas fa-shopping-bag"></i> Shop More Tools
+                </a>
+            </div>
+
+            <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(155, 89, 182, 0.2);">
+                <h3 style="color: var(--primary); margin-bottom: 15px;">Start Your Financial Wellness Journey! ✨</h3>
+                <p style="color: var(--text); opacity: 0.8; line-height: 1.6;">
+                    Print your planner, grab your favorite pen, and take the first step toward financial confidence. 
+                    You've got this! 💪
+                </p>
+            </div>
+
+            <div style="margin-top: 30px; font-size: 0.9rem; color: var(--text); opacity: 0.7;">
+                <p>Creative Mind Prints - Making financial wellness beautiful and accessible 💜</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get product info from URL parameters if available
+        const urlParams = new URLSearchParams(window.location.search);
+        const product = urlParams.get('product');
+
+        if (product) {
+            console.log('Purchase completed for product:', product);
+
+            // You could customize the success message based on which product was purchased
+            const productNames = {
+                'monthly-budget-planner': 'Monthly Budget Planner',
+                'debt-payoff-tracker': 'Debt Payoff Tracker',
+                'emergency-fund-tracker': 'Emergency Fund Tracker',
+                '52-week-savings': '52-Week Savings Challenge',
+                'bill-payment-tracker': 'Bill Payment Tracker',
+                'complete-bundle': 'Complete Budget Planning Bundle'
+            };
+
+            if (productNames[product]) {
+                document.querySelector('.subtitle').innerHTML = 
+                    `Your ${productNames[product]} is ready for download!`;
+            }
+        }
+
+        // Add confetti effect
+        function createConfetti() {
+            const colors = ['#9B59B6', '#3498DB', '#F39C12', '#27AE60'];
+            const container = document.body;
+
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.position = 'fixed';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = '-10px';
+                confetti.style.width = '10px';
+                confetti.style.height = '10px';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.opacity = Math.random();
+                confetti.style.borderRadius = '50%';
+                confetti.style.pointerEvents = 'none';
+                confetti.style.zIndex = '9999';
+
+                container.appendChild(confetti);
+
+                const animation = confetti.animate([
+                    { transform: 'translateY(-10px) rotate(0deg)', opacity: 1 },
+                    { transform: `translateY(${window.innerHeight + 10}px) rotate(360deg)`, opacity: 0 }
+                ], {
+                    duration: Math.random() * 2000 + 3000,
+                    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                });
+
+                animation.onfinish = () => confetti.remove();
+            }
+        }
+
+        // Trigger confetti on page load
+        window.addEventListener('load', () => {
+            setTimeout(createConfetti, 500);
+        });
+    </script>
+</body>
+</html>
