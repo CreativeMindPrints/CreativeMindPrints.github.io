@@ -254,8 +254,8 @@
 
             <div class="highlight-box">
                 <h3><strong>Questions or Issues?</strong></h3>
-                <p><strong>Email:</strong> support@creativemindprints.com</p>
-                <p><strong>Response Time:</strong> Within 24 hours</p>
+                <p><strong>Email:</strong> support@creativemindprints@proton.me</p>
+                <p><strong>Response Time:</strong> Within 48 hours</p>
                 <p>We're here to help with any download issues! 💙</p>
             </div>
 
@@ -289,14 +289,12 @@
     </div>
 
     <script>
-        // Get product info from URL parameters if available
         const urlParams = new URLSearchParams(window.location.search);
         const product = urlParams.get('product');
 
         if (product) {
             console.log('Purchase completed for product:', product);
 
-            // You could customize the success message based on which product was purchased
             const productNames = {
                 'monthly-budget-planner': 'Monthly Budget Planner',
                 'debt-payoff-tracker': 'Debt Payoff Tracker',
@@ -312,7 +310,6 @@
             }
         }
 
-        // Add confetti effect
         function createConfetti() {
             const colors = ['#9B59B6', '#3498DB', '#F39C12', '#27AE60'];
             const container = document.body;
@@ -344,7 +341,6 @@
             }
         }
 
-        // Trigger confetti on page load
         window.addEventListener('load', () => {
             setTimeout(createConfetti, 500);
         });
