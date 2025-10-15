@@ -213,18 +213,25 @@
         }
         
         .product-image {
-            height: 280px; position: relative; overflow: hidden; z-index: 2;
+            aspect-ratio: 1 / 1; /* Perfect square - matches your 1080x1080 images */
+            position: relative; 
+            overflow: hidden; 
+            z-index: 2;
+            background: var(--light);
         }
-        
+
         .product-image img {
-            width: 100%; height: 100%; object-fit: cover;
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; /* Fills the square perfectly */
+            object-position: center; /* Centers any cropping */
             transition: transform 0.3s ease;
         }
-        
+
         .product-card:hover .product-image img {
-            transform: scale(1.05);
+            transform: scale(1.08); /* Nice hover zoom effect */
         }
-        
+
         .product-badge {
             position: absolute; top: 15px; right: 15px; background: var(--accent);
             color: var(--white); padding: 8px 16px; border-radius: 20px;
@@ -302,10 +309,8 @@
         .footer-section a:hover { opacity: 1; }
         
         @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                padding: 1rem 0;
-            }
+            .product-image {
+                aspect-ratio: 1 / 1;
             
             .nav-links { 
                 position: static;
@@ -332,7 +337,8 @@
             }
             
             .products-grid { 
-                grid-template-columns: 1fr; 
+                grid-template-columns: 1fr;
+                gap: 2rem; 
             }
             
             .container { 
